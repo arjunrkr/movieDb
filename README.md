@@ -1,6 +1,9 @@
 # ImdbMock
 
+An angular 4 project to mock an IMDB like wesite to search movies and add as favourite. 
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.2.
+
 
 ## Development server
 
