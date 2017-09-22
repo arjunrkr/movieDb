@@ -1,0 +1,14 @@
+<div class="jumbotron">
+  <h4>Search Movies</h4>
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+  <div>
+
+  </div>
+</div>
+
+<div class="row marketing">
+    <div class="col-md-3" *ngFor="let movie of movies | async" >
+        <h4>{{movie.title}}</h4>
+        <p>{{movie.overview}}</p>
+    </div>
+</div>
