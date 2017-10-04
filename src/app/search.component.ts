@@ -25,6 +25,7 @@ import { Movie } from './movie';
 export class SearchComponent implements OnInit {
   title = 'My Dashboard';
   private searchTerms = new Subject<string>();
+  public like: number;
 
   movies: Observable<Movie[]>;
   constructor(
@@ -34,6 +35,14 @@ export class SearchComponent implements OnInit {
   search(term: string): void {
     // console.log(term);
     this.searchTerms.next(term);
+  }
+  addRemoveFav(value: number): number {
+    if (value === 1) {
+      this.like = 0;
+    }else {
+      this.like = 1;
+    }
+    return this.like;
   }
 
   ngOnInit(): void {

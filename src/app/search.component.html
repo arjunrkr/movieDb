@@ -1,14 +1,20 @@
 <div class="jumbotron">
   <h4>Search Movies</h4>
-  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
-  <div>
-
+  <div class="input-group">
+    <input #searchBox id="search-box"  />
+    <label class="btn btn-primary" (click)="search(searchBox.value)">Search</label>
   </div>
 </div>
 
-<div class="row marketing">
-    <div class="col-md-3" *ngFor="let movie of movies | async" >
-        <h4>{{movie.title}}</h4>
-        <p>{{movie.overview}}</p>
+  <div class="wrapper" *ngFor="let movie of movies | async">
+    <div class="product-img">
+      <img [src]="'https://image.tmdb.org/t/p/w300_and_h450_bestv2'+movie.poster_path" height="220" width="147">
     </div>
-</div>
+    <div class="product-info">
+      <div class="product-text">
+        	<h1>{{ movie.title }}</h1>
+	        <h2>Year: {{ movie.release_date | date }}</h2>
+        <p>{{ movie.overview }} </p>
+      </div>
+    </div>
+  </div>
