@@ -13,28 +13,15 @@ import { Movie } from './movie';
 
 export class HomeFavComponent implements OnInit {
   title = 'My Dashboard';
-  // heroes: Hero[] = [];
-
-  // constructor(private heroService: HeroService) { }
-  _postsArray: Movie[];
+  movies: Movie[] = [];
 
   constructor(private apiSerivce: MovieService) {
   }
 
-  // getPosts(): void {
-
-  //     this.apiSerivce.getPosts()
-  //         .subscribe(
-  //             resultArray => this._postsArray = resultArray,
-  //             error => console.log('Error :: ' + error)
-  //         )
-  // }
-
   ngOnInit(): void {
-    // this.apiSerivce.getPosts()
-    //   .then(resultArray => this._postsArray = resultArray);
-    // this.route.paramMap
-    //     .switchMap((params: ParamMap) => this.heroService.getHero(+params.get('id')))
-    //     .subscribe(hero => this.hero = hero);      
-  }
+        this.movies = this.apiSerivce.getPosts();
+    }
 }
+
+
+

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import { Router } from '@angular/router';
-
+import * as _ from 'lodash';
 // Observable class extensions
 import 'rxjs/add/observable/of';
 
@@ -25,24 +25,43 @@ import { Movie } from './movie';
 export class SearchComponent implements OnInit {
   title = 'My Dashboard';
   private searchTerms = new Subject<string>();
-  public like: number;
-
   movies: Observable<Movie[]>;
   constructor(
     private apiService: MovieService,
     private router: Router) {}
 
   search(term: string): void {
-    // console.log(term);
+    // console.log('here function' + term);
     this.searchTerms.next(term);
   }
-  addRemoveFav(value: number): number {
-    if (value === 1) {
-      this.like = 0;
+
+  public isFav(id: number): boolean {
+    var data = [];
+    data = JSON.parse(localStorage.getItem('FavMovies'));
+    var found = _.find(data, { 'id': id });
+    if (found) {
+      console.log('hit');
+      return true; // 'star glyphicon glyphicon-star';
     }else {
-      this.like = 1;
+      console.log('no hit');
+      return false; // 'star glyphicon glyphicon-star-empty';
     }
-    return this.like;
+  }
+
+  addRemoveFav(fav) {
+    var data = [];
+    data = JSON.parse(localStorage.getItem('FavMovies')) || [];
+    console.log('--------------------------V-Current Collection-V------------------------------');
+    console.log(data);
+    var found = _.find(data, { 'id': fav.id }); // checks for film with id exist on current collection
+    if (found) {
+      data = _.reject(data, { 'id': fav.id }); // if film exist in fav list, its removed from current collection
+    }else {
+      data = _.concat(data, fav); // if not found, concat new film to current collection
+    }
+    console.log('---------------------------V-Final Collection-V--------------------------------');
+    console.log(data);
+    localStorage.setItem('FavMovies', JSON.stringify(data));
   }
 
   ngOnInit(): void {
@@ -56,8 +75,6 @@ export class SearchComponent implements OnInit {
         console.log(error);
         return Observable.of<Movie[]>([]);
       });
-    // this.searchTerms.subscribe((val) => {
-    //     console.log(val);
-    // })
+
   }
 }

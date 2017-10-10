@@ -1,7 +1,6 @@
 <div class="jumbotron">
-  <h4>Search Movies</h4>
   <div class="input-group">
-    <input #searchBox id="search-box"  />
+    <input placeholder='Search Movies' #searchBox id="search-box"  />
     <label class="btn btn-primary" (click)="search(searchBox.value)">Search</label>
   </div>
 </div>
@@ -12,7 +11,7 @@
     </div>
     <div class="product-info">
       <div class="product-text">
-        	<h1>{{ movie.title }}</h1>
+        	<h1>{{ movie.title }} <span (click)="addRemoveFav(movie)" class='star glyphicon glyphicon-star-empty' ng-class="{'star glyphicon glyphicon-star': isFav(movie.id), 'star glyphicon glyphicon-star-empty': !isFav(movie.id)}"></span></h1>
 	        <h2>Year: {{ movie.release_date | date }}</h2>
         <p>{{ movie.overview }} </p>
       </div>

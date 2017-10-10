@@ -17,4 +17,14 @@ export class MovieService {
                 .get(`https://api.themoviedb.org/3/search/movie?api_key=c6ea6031412642a807ae3589783d57dc&query=${term}`)
                 .map((response) => response.json().results as Movie[]);
     }
+    getPosts(): any {
+        return JSON.parse(localStorage.getItem('FavMovies'));
+    }
+    // getPosts(): Promise<Movie[]> {
+    //     return JSON.parse(localStorage.getItem('FavMovies')).then((movie) => {
+    //     this.movies = movie;
+    //     console.log(this.movies);
+    //     return this.movies;
+    //     });
+    // }
 }

@@ -49,11 +49,13 @@ body {
 }
 
 
-/* Main marketing message and sign up button */
 
 .jumbotron {
-    text-align: center;
     border-bottom: .05rem solid #e5e5e5;
+    padding: 20px 60px 20px 60px !important;
+}
+.jumbotron h4 {
+    text-align: center;
 }
 
 .jumbotron .btn {
@@ -139,7 +141,7 @@ body {
 .product-text h1 {
   margin: 0 0 0 18px;
   padding-top: 10px;
-  font-size: 24px;
+  font-size: 18px;
   color: #474747;
   display: inline-block;
 }
@@ -218,4 +220,13 @@ span {
 
 .product-price-btn button:hover {
   background-color: #79b0a1;
+}
+.star {
+  font-size: 18px;
+	color:gold;
+}
+
+.heart {
+  font-size: 18px;
+	color:red;
 }
