@@ -35,33 +35,12 @@ export class SearchComponent implements OnInit {
     this.searchTerms.next(term);
   }
 
-  public isFav(id: number): boolean {
-    var data = [];
-    data = JSON.parse(localStorage.getItem('FavMovies'));
-    var found = _.find(data, { 'id': id });
-    if (found) {
-      console.log('hit');
-      return true; // 'star glyphicon glyphicon-star';
-    }else {
-      console.log('no hit');
-      return false; // 'star glyphicon glyphicon-star-empty';
-    }
+  public isFav(id: number): string {
+    return this.apiService.isFavMovie(id);
   }
 
   addRemoveFav(fav) {
-    var data = [];
-    data = JSON.parse(localStorage.getItem('FavMovies')) || [];
-    console.log('--------------------------V-Current Collection-V------------------------------');
-    console.log(data);
-    var found = _.find(data, { 'id': fav.id }); // checks for film with id exist on current collection
-    if (found) {
-      data = _.reject(data, { 'id': fav.id }); // if film exist in fav list, its removed from current collection
-    }else {
-      data = _.concat(data, fav); // if not found, concat new film to current collection
-    }
-    console.log('---------------------------V-Final Collection-V--------------------------------');
-    console.log(data);
-    localStorage.setItem('FavMovies', JSON.stringify(data));
+    this.apiService.toggleFav(fav);
   }
 
   ngOnInit(): void {

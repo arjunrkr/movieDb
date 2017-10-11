@@ -18,6 +18,14 @@ export class HomeFavComponent implements OnInit {
   constructor(private apiSerivce: MovieService) {
   }
 
+  addRemoveFav(fav) {
+    this.apiSerivce.toggleFav(fav);
+  }
+
+  public isFav(id: number): string {
+    return this.apiSerivce.isFavMovie(id);
+  }
+
   ngOnInit(): void {
         this.movies = this.apiSerivce.getPosts();
     }

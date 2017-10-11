@@ -1,17 +1,22 @@
 <div class="jumbotron">
   <div class="input-group">
     <input placeholder='Search Movies' #searchBox id="search-box"  />
-    <label class="btn btn-primary" (click)="search(searchBox.value)">Search</label>
+    <label class="btn btn-primary" (click)="search(searchBox.value)">Search <i class='glyphicon glyphicon-search'></i></label>
   </div>
 </div>
+<alert type="info" *ngIf="(movies | async)?.length == 0">
+  <strong>No Matches Found!</strong>
+</alert>
 
   <div class="wrapper" *ngFor="let movie of movies | async">
     <div class="product-img">
-      <img [src]="'https://image.tmdb.org/t/p/w300_and_h450_bestv2'+movie.poster_path" height="220" width="147">
+      <img [src]="'https://image.tmdb.org/t/p/w300_and_h450_bestv2'+movie.poster_path"
+       onError="this.src='./assets/no-preview.png';"
+       height="220" width="147">
     </div>
     <div class="product-info">
       <div class="product-text">
-        	<h1>{{ movie.title }} <span (click)="addRemoveFav(movie)" class='star glyphicon glyphicon-star-empty' ng-class="{'star glyphicon glyphicon-star': isFav(movie.id), 'star glyphicon glyphicon-star-empty': !isFav(movie.id)}"></span></h1>
+        	<h1>{{ movie.title }} <span href='#' style="height: 20px;" (click)="addRemoveFav(movie)" [ngClass]="isFav(movie.id)"></span></h1>
 	        <h2>Year: {{ movie.release_date | date }}</h2>
         <p>{{ movie.overview }} </p>
       </div>

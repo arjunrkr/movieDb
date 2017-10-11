@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-
+import * as _ from 'lodash';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { Movie } from './movie';
@@ -20,11 +20,30 @@ export class MovieService {
     getPosts(): any {
         return JSON.parse(localStorage.getItem('FavMovies'));
     }
-    // getPosts(): Promise<Movie[]> {
-    //     return JSON.parse(localStorage.getItem('FavMovies')).then((movie) => {
-    //     this.movies = movie;
-    //     console.log(this.movies);
-    //     return this.movies;
-    //     });
-    // }
+
+    isFavMovie(id: number): string {
+        var data = [];
+        data = JSON.parse(localStorage.getItem('FavMovies'));
+        var found = _.find(data, { 'id': id });
+        if (found) {
+            return 'star glyphicon glyphicon-star';
+        }else {
+            return 'star glyphicon glyphicon-star-empty';
+        }
+    }
+    toggleFav(fav) {
+        var data = [];
+        data = JSON.parse(localStorage.getItem('FavMovies')) || [];
+        console.log('--------------------------V-Current Collection-V------------------------------');
+        console.log(data);
+        var found = _.find(data, { 'id': fav.id }); // checks for film with id exist on current collection
+        if (found) {
+        data = _.reject(data, { 'id': fav.id }); // if film exist in fav list, its removed from current collection
+        }else {
+        data = _.concat(data, fav); // if not found, concat new film to current collection
+        }
+        console.log('---------------------------V-Final Collection-V--------------------------------');
+        console.log(data);
+        localStorage.setItem('FavMovies', JSON.stringify(data));
+    }
 }
