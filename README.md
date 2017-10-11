@@ -1,6 +1,6 @@
-# ImdbMock
+# Movie DB
 
-An angular 4 project to mock an IMDB like wesite to search movies and add as favourite. 
+An angular 4 app to made to search across all the movies from the world and add as favourite(using local storage). 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.2.
 
