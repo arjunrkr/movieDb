@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import { Router } from '@angular/router';
 import * as _ from 'lodash';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+
 // Observable class extensions
 import 'rxjs/add/observable/of';
 
@@ -28,7 +30,10 @@ export class SearchComponent implements OnInit {
   movies: Observable<Movie[]>;
   constructor(
     private apiService: MovieService,
-    private router: Router) {}
+    private router: Router,
+    public toastr: ToastsManager, vcr: ViewContainerRef) {
+      this.toastr.setRootViewContainerRef(vcr);
+    }
 
   search(term: string): void {
     // console.log('here function' + term);
@@ -40,7 +45,19 @@ export class SearchComponent implements OnInit {
   }
 
   addRemoveFav(fav) {
-    this.apiService.toggleFav(fav);
+      if (this.apiService.toggleFav(fav)) {
+          this.showInfo('Added to favourites');
+      }else {
+          this.showInfo('Removed from favourites');
+      }
+  }
+
+  showInfo(msg: string) {
+  this.toastr.info(msg);
+  }
+
+  showWarning(msg: string) {
+  this.toastr.warning(msg, 'Alert!');
   }
 
   ngOnInit(): void {

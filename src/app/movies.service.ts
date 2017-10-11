@@ -31,19 +31,24 @@ export class MovieService {
             return 'star glyphicon glyphicon-star-empty';
         }
     }
-    toggleFav(fav) {
+    toggleFav(fav): boolean {
         var data = [];
         data = JSON.parse(localStorage.getItem('FavMovies')) || [];
         console.log('--------------------------V-Current Collection-V------------------------------');
         console.log(data);
         var found = _.find(data, { 'id': fav.id }); // checks for film with id exist on current collection
         if (found) {
-        data = _.reject(data, { 'id': fav.id }); // if film exist in fav list, its removed from current collection
+            data = _.reject(data, { 'id': fav.id }); // if film exist in fav list, its removed from current collection
+            console.log('---------------------------V-Final Collection-V--------------------------------');
+            console.log(data);
+            localStorage.setItem('FavMovies', JSON.stringify(data));
+            return false;
         }else {
-        data = _.concat(data, fav); // if not found, concat new film to current collection
+            data = _.concat(data, fav); // if not found, concat new film to current collection
+            console.log('---------------------------V-Final Collection-V--------------------------------');
+            console.log(data);
+            localStorage.setItem('FavMovies', JSON.stringify(data));
+            return true;
         }
-        console.log('---------------------------V-Final Collection-V--------------------------------');
-        console.log(data);
-        localStorage.setItem('FavMovies', JSON.stringify(data));
     }
 }
