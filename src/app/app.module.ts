@@ -1,8 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AlertModule } from 'ngx-bootstrap';
-import { ButtonsModule } from 'ngx-bootstrap/buttons';
-import { RatingModule } from 'ngx-bootstrap/rating';
 
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -24,8 +22,6 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     AlertModule.forRoot(),
-    ButtonsModule.forRoot(),
-    RatingModule.forRoot(),
     FormsModule,
     HttpModule,
     AppRoutingModule,
