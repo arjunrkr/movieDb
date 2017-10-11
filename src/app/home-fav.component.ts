@@ -12,21 +12,21 @@ import { Movie } from './movie';
 })
 
 export class HomeFavComponent implements OnInit {
-  title = 'My Dashboard';
-  movies: Movie[] = [];
+    title = 'My Dashboard';
+    movies: Movie[] = [];
 
-  constructor(private apiSerivce: MovieService) {
-  }
+    constructor(private apiSerivce: MovieService) {
+    }
 
-  addRemoveFav(fav) {
-    this.apiSerivce.toggleFav(fav);
-  }
+    addRemoveFav(fav) {
+        this.apiSerivce.toggleFav(fav);
+    }
 
-  public isFav(id: number): string {
-    return this.apiSerivce.isFavMovie(id);
-  }
+    public isFav(id: number): string {
+        return this.apiSerivce.isFavMovie(id);
+    }
 
-  ngOnInit(): void {
+    ngOnInit(): void {
         this.movies = this.apiSerivce.getPosts();
     }
 }
