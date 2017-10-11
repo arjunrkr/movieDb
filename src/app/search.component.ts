@@ -23,7 +23,7 @@ import { Movie } from './movie';
 })
 
 export class SearchComponent implements OnInit {
-  title = 'My Dashboard';
+  title = 'My Dashboard Test';
   private searchTerms = new Subject<string>();
   movies: Observable<Movie[]>;
   constructor(
