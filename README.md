@@ -1,4 +1,4 @@
-# ImdbMock
+# Movie DB
 
 An angular 4 app to made to search across all the movies from the world and add as favourite(using local storage). 
 
