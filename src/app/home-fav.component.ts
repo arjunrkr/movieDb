@@ -28,17 +28,20 @@ export class HomeFavComponent implements OnInit {
         }
     }
 
-    public isFav(id: number): string {
+    isFav(id: number): string {
         return this.apiSerivce.isFavMovie(id);
     }
+    sortBy(srtval: string): void {
+        // return '';
+        this.movies = this.apiSerivce.sortByService(srtval);
+    }
+    showInfo(msg: string) {
+        this.toastr.info(msg, null, { positionClass: 'toast-bottom-right', animate: 'flyRight' });
+    }
 
-  showInfo(msg: string) {
-      this.toastr.info(msg, null, { positionClass: 'toast-bottom-right', animate: 'flyRight' });
-  }
-
-  showWarning(msg: string) {
-      this.toastr.warning(msg, null, { positionClass: 'toast-bottom-right', animate: 'flyRight' });
-  }
+    showWarning(msg: string) {
+        this.toastr.warning(msg, null, { positionClass: 'toast-bottom-right', animate: 'flyRight' });
+    }
 
     ngOnInit(): void {
         this.movies = this.apiSerivce.getPosts();

@@ -4,10 +4,14 @@
         Your one destination for all the information about films.
     </p>
 </div>
-<ol class="breadcrumb">
-  <li><a routerLink="/home">Home</a></li>
-  <li class='active'>Favorites</li>
-</ol>
+<div class="breadcrumb">
+  <label class='active'>Favorites</label>
+  <div  *ngIf="movies.length > 0" class='active' style='float:right;'>Sort By
+    <a (click)="sortBy('release_date')">Year <i class='glyphicon glyphicon-sort-by-attributes'></i></a> | 
+    <a (click)="sortBy('vote_average')">Rating <i class='glyphicon glyphicon-sort-by-attributes'></i></a> | 
+    <a (click)="sortBy('title')">Name <i class='glyphicon glyphicon-sort-by-attributes'></i></a>  
+  </div>
+</div>
 
 <alert type="info" *ngIf="movies.length == 0">
   <strong>No favorites yet!</strong> Go search and add some of your favorite ones.
@@ -19,10 +23,19 @@
   <div class="product-info">
     <div class="product-text">
         <h1>
-              {{ movie.title }} 
-              <span style="height: 20px;" (click)="addRemoveFav(movie)" [ngClass]="isFav(movie.id)"></span>
-          </h1>
-        <h2>Year: {{ movie.release_date | date }}</h2>
+            {{ movie.title }} 
+            <span style="height: 20px;" (click)="addRemoveFav(movie)" [ngClass]="isFav(movie.id)"></span>
+        </h1>
+        <template #popTemplate>
+          Original Title : {{ movie.original_title }} <br>
+          Votes : {{ movie.vote_count }} <br>
+          Rating : {{ movie.vote_average }} <br>
+          Language : {{ movie.original_language }}
+        </template>
+        <h2>
+        Year: {{ movie.release_date | date }}
+        </h2>
+        <a [popover]="popTemplate" popoverTitle="Details" placement="bottom"> View Details </a>          
       <p>{{ movie.overview }} </p>
     </div>
   </div>

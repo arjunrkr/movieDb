@@ -145,7 +145,7 @@ body {
   padding-top: 5px;
   font-size: 18px;
   color: #474747;
-  display: inline-block;
+  display: block;
 }
 
 .product-text h1,
@@ -156,6 +156,7 @@ body {
 .product-text h2 {
   margin: 0 0 5px 18px;
   font-size: 12px;
+  display: inline-block;
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
   text-transform: uppercase;

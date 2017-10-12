@@ -15,7 +15,15 @@
     <div class="product-info">
       <div class="product-text">
         	<h1>{{ movie.title }} <span href='#' style="height: 20px;" (click)="addRemoveFav(movie)" [ngClass]="isFav(movie.id)"></span></h1>
-	        <h2>Year: {{ movie.release_date | date }}</h2>
+	        <template #popTemplate>
+            Votes : {{ movie.vote_count }} <br>
+            Vote Average : {{ movie.vote_average }} <br>
+            Language : {{ movie.original_language }} <br>
+          </template>
+          <h2>
+          Year: {{ movie.release_date | date }}
+          </h2>
+          <a [popover]="popTemplate" popoverTitle="Details" placement="bottom"> View Details </a>          
         <p>{{ movie.overview }} </p>
       </div>
     </div>
