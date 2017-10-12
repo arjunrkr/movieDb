@@ -22,10 +22,10 @@ export class MovieService {
         return JSON.parse(localStorage.getItem('FavMovies'));
     }
 
-    sortByService(srtVal): any {
+    orderByService(srtVal, order): any {
         let data = [];
         data = JSON.parse(localStorage.getItem('FavMovies')) || [];
-        data = _.sortBy(data, [srtVal]);
+        data = _.orderBy(data, [srtVal], [order]);
         // localStorage.setItem('FavMovies', JSON.stringify(data));
         return data;
     }

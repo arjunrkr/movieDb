@@ -6,10 +6,13 @@
 </div>
 <div class="breadcrumb">
   <label class='active'>Favorites</label>
-  <div  *ngIf="movies.length > 0" class='active' style='float:right;'>Sort By
-    <a (click)="sortBy('release_date')">Year <i class='glyphicon glyphicon-sort-by-attributes'></i></a> | 
-    <a (click)="sortBy('vote_average')">Rating <i class='glyphicon glyphicon-sort-by-attributes'></i></a> | 
-    <a (click)="sortBy('title')">Name <i class='glyphicon glyphicon-sort-by-attributes'></i></a>  
+  <div  *ngIf="movies.length > 0" class='active' style='float:right;'>Sort By: 
+    Year    <a (click)="orderBy('release_date','asc')"><i class='glyphicon glyphicon-sort-by-attributes'></i></a>  
+            <a (click)="orderBy('release_date','desc')"><i class='glyphicon glyphicon-sort-by-attributes-alt'></i></a> | 
+    Rating  <a (click)="orderBy('vote_average','asc')"><i class='glyphicon glyphicon-sort-by-attributes'></i></a> 
+            <a (click)="orderBy('vote_average','desc')"><i class='glyphicon glyphicon-sort-by-attributes-alt'></i></a> | 
+    Name    <a (click)="orderBy('title','asc')"><i class='glyphicon glyphicon-sort-by-attributes'></i></a>  
+            <a (click)="orderBy('title','desc')"><i class='glyphicon glyphicon-sort-by-attributes-alt'></i></a>  
   </div>
 </div>
 

@@ -31,9 +31,9 @@ export class HomeFavComponent implements OnInit {
     isFav(id: number): string {
         return this.apiSerivce.isFavMovie(id);
     }
-    sortBy(srtval: string): void {
+    orderBy(srtval: string, order: string): void {
         // return '';
-        this.movies = this.apiSerivce.sortByService(srtval);
+        this.movies = this.apiSerivce.orderByService(srtval, order);
     }
     showInfo(msg: string) {
         this.toastr.info(msg, null, { positionClass: 'toast-bottom-right', animate: 'flyRight' });
