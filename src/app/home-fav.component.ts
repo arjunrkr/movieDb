@@ -24,7 +24,7 @@ export class HomeFavComponent implements OnInit {
         if (this.apiSerivce.toggleFav(fav)) {
             this.showInfo('Added to favourites');
         }else {
-            this.showInfo('Removed from favourites');
+            this.showWarning('Removed from favourites');
         }
     }
 
@@ -32,13 +32,13 @@ export class HomeFavComponent implements OnInit {
         return this.apiSerivce.isFavMovie(id);
     }
 
-    showInfo(msg: string) {
-    this.toastr.info(msg);
-    }
+  showInfo(msg: string) {
+      this.toastr.info(msg, null, { positionClass: 'toast-bottom-right', animate: 'flyRight' });
+  }
 
-    showWarning(msg: string) {
-    this.toastr.warning(msg, 'Alert!');
-    }
+  showWarning(msg: string) {
+      this.toastr.warning(msg, null, { positionClass: 'toast-bottom-right', animate: 'flyRight' });
+  }
 
     ngOnInit(): void {
         this.movies = this.apiSerivce.getPosts();

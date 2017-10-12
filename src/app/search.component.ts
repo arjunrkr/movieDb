@@ -48,17 +48,18 @@ export class SearchComponent implements OnInit {
       if (this.apiService.toggleFav(fav)) {
           this.showInfo('Added to favourites');
       }else {
-          this.showInfo('Removed from favourites');
+          this.showWarning('Removed from favourites');
       }
   }
 
   showInfo(msg: string) {
-  this.toastr.info(msg);
+      this.toastr.info(msg, null, { positionClass: 'toast-bottom-right', animate: 'flyRight' });
   }
 
   showWarning(msg: string) {
-  this.toastr.warning(msg, 'Alert!');
+      this.toastr.warning(msg, null, { positionClass: 'toast-bottom-right', animate: 'flyRight' });
   }
+
 
   ngOnInit(): void {
     this.movies = this.searchTerms
