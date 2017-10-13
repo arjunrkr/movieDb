@@ -30,16 +30,39 @@
             <span style="height: 20px;" (click)="addRemoveFav(movie)" [ngClass]="isFav(movie.id)"></span>
         </h1>
         <template #popTemplate>
-          Original Title : {{ movie.original_title }} <br>
-          Votes : {{ movie.vote_count }} <br>
-          Rating : {{ movie.vote_average }} <br>
-          Language : {{ movie.original_language }}
+          <table style='width:100%;'>
+            <tr>
+              <td>Original Title</td>
+              <td>: {{ movie.original_title }}</td>
+            <tr>
+            <tr>
+              <td>Votes</td>
+              <td>: {{ movie.vote_count }}</td>
+            <tr>
+            <tr>
+              <td>Rating</td>
+              <td>: {{ movie.vote_average }}</td>
+            <tr>
+            <tr>
+              <td>Language</td>
+              <td>: {{ movie.original_language }}</td>
+            <tr>
+          </table>
         </template>
         <h2>
         Year: {{ movie.release_date | date }}
         </h2>
-        <a [popover]="popTemplate" popoverTitle="Details" placement="bottom"> View Details </a>          
+        <a [popover]="popTemplate" popoverTitle="Details" placement="bottom" [outsideClick]="true"> View Details </a>          
       <p>{{ movie.overview }} </p>
     </div>
+    <a style='float:right;' 
+    [popover]="popTemplate2" popoverTitle="Plot" placement="left" [outsideClick]="true"
+    type="info" 
+    *ngIf="movie.overview?.length > 422">
+      Read More..
+    </a>
+    <template #popTemplate2>
+      {{ movie.overview }}
+    </template>         
   </div>
 </div>

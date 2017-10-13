@@ -30,7 +30,7 @@ body {
 /* Make the masthead heading the same height as the navigation */
 
 .header h3 {
-    margin-top: 0;
+    margin-top: 5px;
     margin-bottom: 0;
     line-height: 3rem;
 }
@@ -164,7 +164,7 @@ body {
 }
 
 .product-text p {
-  height: 155px;
+  height: 140px;
   margin: 8px 0 0 8px;
   font-family: 'Playfair Display', serif;
   color: #8d8d8d;
@@ -237,4 +237,17 @@ span {
     font-size: 14px !important;
     font-family: 'Raleway', sans-serif !important;
     height: 30px !important;    
+}
+ a:hover {
+  cursor:pointer;
+ }
+.headLogo {
+  height:40px;
+  width:40px;
+  float: left;
+  margin-right: 10px;
+}
+.imgLogo {
+  height:40px;
+  width:40px;
 }

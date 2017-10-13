@@ -72,6 +72,5 @@ export class SearchComponent implements OnInit {
         console.log(error);
         return Observable.of<Movie[]>([]);
       });
-
   }
 }

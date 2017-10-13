@@ -8,4 +8,5 @@ import * as _ from 'lodash';
 })
 export class AppComponent {
   title = 'Cinema Paradiso';
+  private LOGO = '../assets/logo.png';
 }
