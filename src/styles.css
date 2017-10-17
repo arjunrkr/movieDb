@@ -193,15 +193,9 @@ body {
   color: #474747;
 }
 
-span {
-  display: inline-block;
-  height: 50px;
-  font-family: 'Suranna', serif;
-  font-size: 34px;
-}
+
 
 .product-price-btn button {
-  float: right;
   display: inline-block;
   height: 50px;
   width: 176px;

@@ -26,7 +26,15 @@ export class MovieService {
         let data = [];
         data = JSON.parse(localStorage.getItem('FavMovies')) || [];
         data = _.orderBy(data, [srtVal], [order]);
-        // localStorage.setItem('FavMovies', JSON.stringify(data));
+        return data;
+    }
+
+    filterByService(srtVal): any {
+        let data = [];
+        data = JSON.parse(localStorage.getItem('FavMovies')) || [];
+        if (srtVal !== '') {
+            data = _.filter(data, {'original_language': srtVal});
+        }
         return data;
     }
 

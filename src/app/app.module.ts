@@ -10,27 +10,32 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MyInterceptor } from './my.interceptor';
 import { DatePipe } from '@angular/common';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { HomeFavComponent } from './home-fav.component';
+import { TabularDataComponent } from './tabulardata.component';
 import { SearchComponent } from './search.component';
-
-import { AppRoutingModule } from './app-routing.module';
-
-
+import {DataTableModule, SharedModule} from 'primeng/primeng';
+import {SelectButtonModule} from 'primeng/primeng';
+import {DropdownModule} from 'primeng/primeng';
 @NgModule({
   declarations: [
     AppComponent,
     HomeFavComponent,
     SearchComponent,
+    TabularDataComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    DataTableModule,
+    SharedModule,
+    SelectButtonModule,
+    DropdownModule,
     AlertModule.forRoot(),
     FormsModule,
-    // HttpModule,
     AppRoutingModule,
     ToastModule.forRoot(),
     PopoverModule.forRoot()

@@ -6,6 +6,9 @@
 </div>
 <div class="breadcrumb">
   <label class='active'>Favorites</label>
+  <div  class='active' style='float:right;margin-left:10px;'>Filter By: 
+    <p-dropdown #dd [options]="langauges" (onChange)="filterBy(selectedlangauge)"  [(ngModel)]="selectedlangauge" placeholder="Language"></p-dropdown>
+  </div>
   <div  *ngIf="movies.length > 0" class='active' style='float:right;'>Sort By: 
     Year    <a (click)="orderBy('release_date','asc')"><i class='glyphicon glyphicon-sort-by-attributes'></i></a>  
             <a (click)="orderBy('release_date','desc')"><i class='glyphicon glyphicon-sort-by-attributes-alt'></i></a> | 
@@ -16,6 +19,7 @@
   </div>
 </div>
 
+<p>Selected Language: {{selectedlangauge ? selectedlangauge.name : 'Any'}}</p> 
 <alert type="info" *ngIf="movies.length == 0">
   <strong>No favorites yet!</strong> Go search and add some of your favorite ones.
 </alert>

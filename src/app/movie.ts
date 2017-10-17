@@ -11,3 +11,7 @@ export class Movie {
     release_date: string;
     poster_path: string;
 }
+export interface SelectItem {
+    label: string;
+    value: any;
+}

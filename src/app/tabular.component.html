@@ -1,0 +1,14 @@
+<div class="jumbotron">
+    <h2>This is Datatable Workaround</h2>
+</div>
+<alert type="info" *ngIf="(fakedata)?.length == 0">
+  <strong>No Matches Found!</strong>
+</alert>
+<p-dataTable [value]="fakedata" [rows]="10" [paginator]="true" [scrollable]="true" scrollHeight="450px">
+    <p-column field="p" header="P Data" sortable="true"></p-column>
+    <p-column field="l" header="L Data" sortable="true"></p-column>
+    <p-column field="g" header="G Data" sortable="true"></p-column>
+    <p-column field="y" header="Y Data" sortable="true"></p-column>
+    <p-column field="m" header="M Data" sortable="true"></p-column>
+    <p-column field="d" header="D Data" sortable="true"></p-column>
+</p-dataTable>
