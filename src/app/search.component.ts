@@ -36,7 +36,6 @@ export class SearchComponent implements OnInit {
     }
 
   search(term: string): void {
-    // console.log('here function' + term);
     this.searchTerms.next(term);
   }
 

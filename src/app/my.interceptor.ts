@@ -3,19 +3,17 @@ import { HttpInterceptor, HttpHandler, HttpRequest, HttpEvent, HttpResponse } fr
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/do';
-
 @Injectable()
 export class MyInterceptor implements HttpInterceptor {
+
+
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
 
-  console.log('call satrt');
     return next.handle(req).do(evt => {
       if (evt instanceof HttpResponse) {
-        console.log('---> status:', evt.status);
-        console.log('---> filter:', req.params.get('filter'));
       }
     });
 
