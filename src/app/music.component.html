@@ -1,0 +1,28 @@
+<div class="jumbotron">
+  <div class="input-group">
+    <input placeholder='Search Music' #searchBox id="search-box"  />
+    <label class="btn btn-primary" (click)="search(searchBox.value)">Search 
+      <i [ngClass]="loadingIndicator ? 'fa fa-spinner fa-spin' : 'fa fa-search'"></i>
+    </label>
+  </div>
+</div>
+<alert type="info" *ngIf="(musics | async)?.length == 0">
+  <strong>No Matches Found!</strong>
+</alert>
+  <div *ngIf="loadingIndicator" style='text-align:center'><i class='fa fa-spinner fa-spin'></i></div>
+
+  <div class="wrapperMusic" *ngFor="let track of musics | async">
+    <div class="track-img">
+      <img [src]="track.artworkUrl100" height="60" width="60">
+    </div>
+    <div class="track-info">
+      <div class="track-text">
+        	<h1>{{ track.trackName }} <span href='#' style="height: 20px;" (click)="addRemoveFav(track)" [ngClass]="isFav(track.trackId)"></span></h1>
+
+          <h2>Artist: {{ track.artistName }} </h2>
+          <h2>Genre: {{ track.primaryGenreName  }} </h2>
+          <h2>Released: {{ track.releaseDate | date }} </h2>
+          <h2>Duration: {{ track.trackTimeMillis  }} </h2>
+      </div>     
+    </div>
+  </div>

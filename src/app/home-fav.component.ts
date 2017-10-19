@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { MovieService } from './movies.service';
-import { Movie, SelectItem } from './movie';
+import { MusicService } from './music.service';
+import { Movie, SelectItem, Music } from './interfaces';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 // import { Hero } from './hero';
 // import { HeroService } from './hero.service';
@@ -9,29 +10,42 @@ import { ToastsManager } from 'ng2-toastr/ng2-toastr';
     selector: 'app-home',
     templateUrl: './home-fav.component.html',
     styleUrls: [],
-    providers: [MovieService]
+    providers: [MovieService, MusicService]
 })
 
 export class HomeFavComponent implements OnInit {
     title = 'My Dashboard';
     movies: Movie[] = [];
+    musics: Music[] = [];
     langauges: SelectItem[];
 
     selectedlangauge: any;
 
 
-    constructor(private apiSerivce: MovieService, public toastr: ToastsManager, vcr: ViewContainerRef) {
+    constructor(
+        private movieSerivce: MovieService,
+        private musicSerivce: MusicService,
+        public toastr: ToastsManager,
+        vcr: ViewContainerRef
+    ) {
         this.toastr.setRootViewContainerRef(vcr);
         this.langauges = [];
-        this.langauges.push({label:'Any', value:{id:1, name: 'Any', code: ''}});
-        this.langauges.push({label:'English', value:{id:2, name: 'English', code: 'en'}});
-        this.langauges.push({label:'Hindi', value:{id:3, name: 'Hindi', code: 'hi'}});
-        this.langauges.push({label:'Tamil', value:{id:4, name: 'Tamil', code: 'ta'}});
-        this.langauges.push({label:'Malayalam', value:{id:5, name: 'Malayalam', code: 'ml'}});
+        this.langauges.push({label: 'Any', value: {id: 1, name: 'Any', code: ''}});
+        this.langauges.push({label: 'English', value: {id: 2, name: 'English', code: 'en'}});
+        this.langauges.push({label: 'Hindi', value: {id: 3, name: 'Hindi', code: 'hi'}});
+        this.langauges.push({label: 'Tamil', value: {id: 4, name: 'Tamil', code: 'ta'}});
+        this.langauges.push({label: 'Malayalam', value: {id: 5, name: 'Malayalam', code: 'ml'}});
     }
 
     addRemoveFav(fav) {
-        if (this.apiSerivce.toggleFav(fav)) {
+        if (this.movieSerivce.toggleFav(fav)) {
+            this.showInfo('Added to favourites');
+        }else {
+            this.showWarning('Removed from favourites');
+        }
+    }
+    addRemoveFavMusic(fav) {
+        if (this.musicSerivce.toggleFav(fav)) {
             this.showInfo('Added to favourites');
         }else {
             this.showWarning('Removed from favourites');
@@ -39,13 +53,16 @@ export class HomeFavComponent implements OnInit {
     }
 
     isFav(id: number): string {
-        return this.apiSerivce.isFavMovie(id);
+        return this.movieSerivce.isFavMovie(id);
+    }
+    isFavMusic(id: number): string {
+        return this.musicSerivce.isFavMusic(id);
     }
     orderBy(srtval: string, order: string): void {
-        this.movies = this.apiSerivce.orderByService(srtval, order);
+        this.movies = this.movieSerivce.orderByService(srtval, order);
     }
     filterBy(srtval: any): void {
-        this.movies = this.apiSerivce.filterByService(srtval.code);
+        this.movies = this.movieSerivce.filterByService(srtval.code);
     }
     showInfo(msg: string) {
         this.toastr.info(msg, null, { positionClass: 'toast-bottom-right', animate: 'flyRight' });
@@ -56,7 +73,8 @@ export class HomeFavComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.movies = this.apiSerivce.getPosts();
+        this.movies = this.movieSerivce.getPosts();
+        this.musics = this.musicSerivce.getPosts();
     }
 }
 

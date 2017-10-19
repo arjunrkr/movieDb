@@ -13,23 +13,23 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
-import { MovieService } from './movies.service';
-import { Movie } from './interfaces';
+import { MusicService } from './music.service';
+import { Music } from './interfaces';
 
 @Component({
-    selector: 'app-search',
-    templateUrl: './search.component.html',
+    selector: 'app-music',
+    templateUrl: './music.component.html',
     styleUrls: [],
-    providers: [ MovieService ],
+    providers: [ MusicService ],
 })
 
-export class SearchComponent implements OnInit {
+export class MusicComponent implements OnInit {
   title = 'My Dashboard';
   private searchTerms = new Subject<string>();
   private loadingIndicator: boolean = false;
-  movies: Observable<Movie[]>;
+  musics: Observable<Music[]>;
   constructor(
-    private apiService: MovieService,
+    private apiService: MusicService,
     private router: Router,
     public toastr: ToastsManager, vcr: ViewContainerRef) {
       this.toastr.setRootViewContainerRef(vcr);
@@ -40,7 +40,7 @@ export class SearchComponent implements OnInit {
   }
 
   public isFav(id: number): string {
-    return this.apiService.isFavMovie(id);
+    return this.apiService.isFavMusic(id);
   }
 
   addRemoveFav(fav) {
@@ -61,17 +61,17 @@ export class SearchComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.movies = this.searchTerms
+    this.musics = this.searchTerms
       .debounceTime(300)        // wait 300ms after each keystroke before considering the term
       .distinctUntilChanged()   // ignore if next search term is same as previous
       .do(_ => this.loadingIndicator = true)
       .switchMap(term =>  term
         ? this.apiService.search(term)
-        : Observable.of<Movie[]>([]))
+        : Observable.of<Music[]>([]))
       .do(_ => this.loadingIndicator = false)
       .catch(error => {
         console.log(error);
-        return Observable.of<Movie[]>([]);
+        return Observable.of<Music[]>([]);
       });
   }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { FakeService } from './fake.service';
-import { Fake } from './fake';
+import { Fake } from './interfaces';
 // import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({

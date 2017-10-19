@@ -4,7 +4,7 @@ import * as _ from 'lodash';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
-import { Fake } from './fake';
+import { Fake } from './interfaces';
 
 
 @Injectable()
@@ -15,7 +15,6 @@ export class FakeService {
     getPosts() {
         return this.http.get('../assets/search-index-min.json')
                     .toPromise()
-                    .then(res => res as Fake[] || [])
-                    .then(data => { return data; });
+                    .then(res => res as Fake[] || []);
     }
 }

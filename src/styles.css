@@ -245,3 +245,82 @@ body {
   height:40px;
   width:40px;
 }
+
+/*  Music Styles.............................................................. */
+.wrapperMusic {
+  height: 60px;
+  width: 98%;
+  float: left;
+  margin: 10px 0 0 10px;
+  border-radius: 7px 7px 7px 7px;
+  /* VIA CSS MATIC https://goo.gl/cIbnS */
+  -webkit-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+}
+
+.track-img {
+  float: left;
+  height: 60px;
+  width: 60px;
+}
+
+.track-img img {
+  border-radius: 7px 0 0 7px;
+}
+
+.track-info {
+  float: left;
+  height: 60px;
+  width: 90%;
+  border-radius: 0 7px 10px 7px;
+  /*background-color: #ffffff;*/
+}
+
+.track-text {
+  height: 40px;
+  width: 90%;
+  float:left;
+}
+.track-text-head {
+  width: 80%;
+  float:left;
+}
+.track-text-fav {
+  width: 20%;
+  float:left;
+}
+
+.track-text h1 {
+  margin: 0 0 0 10px;
+  padding-top: 5px;
+  font-size: 12px;
+  color: #474747;
+  display: block;
+}
+
+.track-text h1,
+.track-price-btn p {
+  font-family: 'Bentham', serif;
+}
+
+.track-text h2 {
+  margin: 0 0 5px 10px;
+  font-size: 12px;
+  display: inline-block;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #d2d2d2;
+}
+
+.track-text p {
+  height: 140px;
+  margin: 8px 0 0 8px;
+  font-family: 'Playfair Display', serif;
+  color: #8d8d8d;
+  line-height: 1.7em;
+  font-size: 11px;
+  font-weight: lighter;
+  overflow: hidden;
+}
