@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
-import { MovieService } from './movies.service';
-import { MusicService } from './music.service';
+import { MovieService } from './movies/movies.service';
+import { MusicService } from './music/music.service';
 import { Movie, SelectItem, Music } from './interfaces';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 // import { Hero } from './hero';

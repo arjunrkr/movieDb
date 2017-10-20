@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import * as _ from 'lodash';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import { Music } from './interfaces';
+import { Music } from '../interfaces';
 
 
 @Injectable()

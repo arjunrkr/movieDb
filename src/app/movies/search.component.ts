@@ -14,7 +14,7 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
 import { MovieService } from './movies.service';
-import { Movie } from './interfaces';
+import { Movie } from '../interfaces';
 
 @Component({
     selector: 'app-search',

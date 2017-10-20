@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
  import { HomeFavComponent } from './home-fav.component';
- import { SearchComponent } from './search.component';
- import { MusicComponent } from './music.component';
- import { TabularDataComponent } from './tabulardata.component';
+ import { SearchComponent } from './movies/search.component';
+ import { MusicComponent } from './music/music.component';
+ import { TabularDataComponent } from './datatable/tabulardata.component';
 // import { HeroDetailComponent }  from './hero-detail.component';
 
 

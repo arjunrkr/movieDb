@@ -14,7 +14,7 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
 import { MusicService } from './music.service';
-import { Music } from './interfaces';
+import { Music } from '../interfaces';
 
 @Component({
     selector: 'app-music',
@@ -27,6 +27,8 @@ export class MusicComponent implements OnInit {
   title = 'My Dashboard';
   private searchTerms = new Subject<string>();
   private loadingIndicator: boolean = false;
+  private minutes: number;
+  private seconds: number;
   musics: Observable<Music[]>;
   constructor(
     private apiService: MusicService,
