@@ -42,9 +42,9 @@ export class MusicService {
         let data = [];
         data = JSON.parse(localStorage.getItem('FavMusic'));
         if (_.find(data, { 'trackId': id })) {
-            return 'star glyphicon glyphicon-star';
+            return 'fa fa-heart fa-1x';
         }else {
-            return 'star glyphicon glyphicon-star-empty';
+            return 'fa fa-heart-o fa-1x';
         }
     }
 

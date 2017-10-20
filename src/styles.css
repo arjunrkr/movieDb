@@ -224,8 +224,10 @@ body {
 	color:gold;
 }
 
-.heart {
-  font-size: 18px;
+.fa-heart{
+	color:red;
+}
+.fa-heart-o{
 	color:red;
 }
 .toast-message {
@@ -269,14 +271,14 @@ body {
 .track-info {
   float: left;
   height: 60px;
-  width: 90%;
+  width: 94%;
   border-radius: 0 7px 10px 7px;
   /*background-color: #ffffff;*/
 }
 
 .track-text {
   height: 40px;
-  width: 90%;
+  width: 100%;
   float:left;
   position: relative;
 }
@@ -330,16 +332,19 @@ body {
     font-weight: 400;
     height: 20px;
     position: absolute;
-    top: 0px;
-    right: 0px;
+    right: 10px;
+    top: 5px;
     color: #696969;
 }
-.block2 span {
+/*.block2 span {
   top: 4px;
-}
+}*/
 .ui-widget-content a {
     color: #337ab7 !important;
 }
 .ui-widget-header{
   border: none !important;
+}
+.ui-tabview-panel{
+  padding: 0em !important;
 }

@@ -20,7 +20,7 @@
           </div>
       </div>
 
-        <alert type="info" *ngIf="movies.length == 0">
+        <alert type="info" *ngIf="(movies == null) || (movies.length == 0)">
           <strong>No favorites yet!</strong> Search and add some of your favorite movies.
         </alert>
         <div class="wrapper" *ngFor="let movie of movies">
@@ -70,7 +70,12 @@
         </div>
     </p-tabPanel>
     <p-tabPanel header="Favorite Music">
-      <alert type="info" *ngIf="musics.length == 0">
+      <div class="ui-g">
+          <div class="ui-g-4">Favorites</div>
+          <div class="ui-g-12 ui-md-4 ui-md-offset-4 pull-right" style='text-align: right;'>
+          </div>
+      </div>    
+      <alert type="info" *ngIf="(musics == null) || (musics.length == 0)">
         <strong>No favorites yet!</strong> Search and add some of your favorite tracks.
       </alert>    
       <div class="wrapperMusic" *ngFor="let track of musics">
@@ -80,7 +85,7 @@
         <div class="track-info">
           <div class="track-text">
               <h1>{{ track.trackName }} </h1>
-              <div class='block2'>Duration: {{ msToTime(track.trackTimeMillis)  }} <span href='#' (click)="addRemoveFav(track)" [ngClass]="isFavMusic(track.trackId)"></span></div>
+              <div class='block2'>Duration: {{ msToTime(track.trackTimeMillis)  }} <span href='#' (click)="addRemoveFavMusic(track)" [ngClass]="isFavMusic(track.trackId)"></span></div>
 
               <h2>Artist: {{ track.artistName }} </h2>
               <h2>Genre: {{ track.primaryGenreName  }} </h2>

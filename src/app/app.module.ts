@@ -1,11 +1,11 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AlertModule } from 'ngx-bootstrap';
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
 import { PopoverModule } from 'ngx-bootstrap/popover';
 
-import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MyInterceptor } from './my.interceptor';
 import { DatePipe } from '@angular/common';
@@ -16,7 +16,7 @@ import { HomeFavComponent } from './home-fav.component';
 import { TabularDataComponent } from './datatable/tabulardata.component';
 import { MusicComponent } from './music/music.component';
 import { SearchComponent } from './movies/search.component';
-// import { MapModule } from './maps/map.module';
+import { MapModule } from './maps/map.module';
 import {
   DataTableModule,
   SharedModule,
@@ -36,7 +36,7 @@ import {
   imports: [
     BrowserModule,
     HttpClientModule,
-    // MapModule,
+    MapModule,
     BrowserAnimationsModule,
     DataTableModule,
     SharedModule,
