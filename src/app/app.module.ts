@@ -16,13 +16,13 @@ import { HomeFavComponent } from './home-fav.component';
 import { TabularDataComponent } from './datatable/tabulardata.component';
 import { MusicComponent } from './music/music.component';
 import { SearchComponent } from './movies/search.component';
+// import { MapModule } from './maps/map.module';
 import {
   DataTableModule,
   SharedModule,
   SelectButtonModule,
   DropdownModule,
   TabViewModule,
-  GMapModule
 } from 'primeng/primeng';
 
 @NgModule({
@@ -36,6 +36,7 @@ import {
   imports: [
     BrowserModule,
     HttpClientModule,
+    // MapModule,
     BrowserAnimationsModule,
     DataTableModule,
     SharedModule,
@@ -47,7 +48,6 @@ import {
     AppRoutingModule,
     ToastModule.forRoot(),
     PopoverModule.forRoot(),
-    GMapModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: MyInterceptor, multi: true }

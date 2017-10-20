@@ -9,7 +9,7 @@
     <p-tabPanel header="Favorite Movies" [selected]="true">
       <div class="ui-g">
           <div class="ui-g-4">Favorites</div>
-          <div class="ui-g-12 ui-md-4 ui-md-offset-4 pull-right">
+          <div class="ui-g-12 ui-md-4 ui-md-offset-4 pull-right" style='text-align: right;'>
             Sort By: 
                 Year    <a (click)="orderBy('release_date','asc')"><i class='glyphicon glyphicon-sort-by-attributes'></i></a>  
                         <a (click)="orderBy('release_date','desc')"><i class='glyphicon glyphicon-sort-by-attributes-alt'></i></a> | 
@@ -29,10 +29,8 @@
           </div>
           <div class="product-info">
             <div class="product-text">
-                <h1>
-                    {{ movie.title }} 
-                    <span style="height: 20px;" (click)="addRemoveFav(movie)" [ngClass]="isFav(movie.id)"></span>
-                </h1>
+                <h1>{{ movie.title }}</h1>
+                <div class='block2'><span style="height: 20px;" (click)="addRemoveFav(movie)" [ngClass]="isFav(movie.id)"></span></div>                    
                 <template #popTemplate>
                   <table style='width:100%;'>
                     <tr>
@@ -81,12 +79,12 @@
         </div>
         <div class="track-info">
           <div class="track-text">
-              <h1>{{ track.trackName }} <span href='#' style="height: 20px;" (click)="addRemoveFavMusic(track)" [ngClass]="isFavMusic(track.trackId)"></span></h1>
+              <h1>{{ track.trackName }} </h1>
+              <div class='block2'>Duration: {{ msToTime(track.trackTimeMillis)  }} <span href='#' (click)="addRemoveFav(track)" [ngClass]="isFavMusic(track.trackId)"></span></div>
 
               <h2>Artist: {{ track.artistName }} </h2>
               <h2>Genre: {{ track.primaryGenreName  }} </h2>
               <h2>Released: {{ track.releaseDate | date }} </h2>
-              <h2>Duration: {{ track.trackTimeMillis  }} </h2>
           </div>     
         </div>
       </div>

@@ -17,12 +17,12 @@
     </div>
     <div class="track-info">
       <div class="track-text">
-        	<h1>{{ track.trackName }} <span href='#' style="height: 20px;" (click)="addRemoveFav(track)" [ngClass]="isFav(track.trackId)"></span></h1>
+        	<h1>{{ track.trackName }} </h1>
+          <div class='block2'>Duration: {{ msToTime(track.trackTimeMillis)  }} <span href='#' (click)="addRemoveFav(track)" [ngClass]="isFav(track.trackId)"></span></div>
 
           <h2>Artist: {{ track.artistName }} </h2>
           <h2>Genre: {{ track.primaryGenreName  }} </h2>
           <h2>Released: {{ track.releaseDate | date }} </h2>
-          <h2>Duration: {{ track.trackTimeMillis  }} </h2>
       </div>     
     </div>
   </div>

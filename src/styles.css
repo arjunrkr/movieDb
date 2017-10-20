@@ -130,6 +130,7 @@ body {
   height: 200px;
   width: 409px;
   float:left;
+  position: relative;
 }
 .product-text-head {
   width: 80%;
@@ -143,14 +144,15 @@ body {
 .product-text h1 {
   margin: 0 0 0 18px;
   padding-top: 5px;
-  font-size: 18px;
+  font-size: 13px;
   color: #474747;
   display: block;
 }
 
 .product-text h1,
 .product-price-btn p {
-  font-family: 'Bentham', serif;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
 }
 
 .product-text h2 {
@@ -160,14 +162,14 @@ body {
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
   text-transform: uppercase;
-  color: #d2d2d2;
+  color: #696969;
 }
 
 .product-text p {
   height: 140px;
   margin: 8px 0 0 8px;
   font-family: 'Playfair Display', serif;
-  color: #8d8d8d;
+  color: #696969;
   line-height: 1.7em;
   font-size: 12px;
   font-weight: lighter;
@@ -251,12 +253,10 @@ body {
   height: 60px;
   width: 98%;
   float: left;
-  margin: 10px 0 0 10px;
-  border-radius: 7px 7px 7px 7px;
-  /* VIA CSS MATIC https://goo.gl/cIbnS */
-  -webkit-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
-  -moz-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
-  box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+  margin: -1px 0 0 0px;
+  border-bottom: 1px solid #ccc; 
+  border-top: 1px solid #ccc;
+
 }
 
 .track-img {
@@ -265,9 +265,6 @@ body {
   width: 60px;
 }
 
-.track-img img {
-  border-radius: 7px 0 0 7px;
-}
 
 .track-info {
   float: left;
@@ -281,6 +278,7 @@ body {
   height: 40px;
   width: 90%;
   float:left;
+  position: relative;
 }
 .track-text-head {
   width: 80%;
@@ -294,14 +292,15 @@ body {
 .track-text h1 {
   margin: 0 0 0 10px;
   padding-top: 5px;
-  font-size: 12px;
+  font-size: 13px;
   color: #474747;
   display: block;
 }
 
 .track-text h1,
 .track-price-btn p {
-  font-family: 'Bentham', serif;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
 }
 
 .track-text h2 {
@@ -310,17 +309,37 @@ body {
   display: inline-block;
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
-  text-transform: uppercase;
-  color: #d2d2d2;
+  color: #696969;
 }
 
 .track-text p {
   height: 140px;
   margin: 8px 0 0 8px;
   font-family: 'Playfair Display', serif;
-  color: #8d8d8d;
+  color: #696969;
   line-height: 1.7em;
   font-size: 11px;
   font-weight: lighter;
   overflow: hidden;
+}
+
+
+.block2 {
+    font-size: 12px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    height: 20px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    color: #696969;
+}
+.block2 span {
+  top: 4px;
+}
+.ui-widget-content a {
+    color: #337ab7 !important;
+}
+.ui-widget-header{
+  border: none !important;
 }

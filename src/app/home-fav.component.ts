@@ -71,7 +71,21 @@ export class HomeFavComponent implements OnInit {
     showWarning(msg: string) {
         this.toastr.warning(msg, null, { positionClass: 'toast-bottom-right', animate: 'flyRight' });
     }
+    msToTime(duration) {
+        let milliseconds: any;
+        let seconds: any;
+        let minutes: any;
+        let hours: any;
+        milliseconds = ((duration % 1000) / 100).toFixed(0);
+        seconds = ((duration / 1000) % 60).toFixed(0);
+        minutes = ((duration / (1000 * 60)) % 60).toFixed(0);
+        hours = ((duration / (1000 * 60 * 60)) % 24).toFixed(0);
 
+        hours = (hours < 10) ? '0' + hours : hours;
+        minutes = (minutes < 10) ? '0' + minutes : minutes;
+        seconds = (seconds < 10) ? '0' + seconds : seconds;
+        return  minutes + ':' + seconds;
+    }
     ngOnInit(): void {
         this.movies = this.movieSerivce.getPosts();
         this.musics = this.musicSerivce.getPosts();
